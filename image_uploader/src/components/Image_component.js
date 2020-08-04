@@ -3,10 +3,10 @@ import React from "react";
 const Image_component = () => {
 
     return(
-    <div>
-        <form style={{marginTop: "15%"  }}>
-            <h1 className="ui center aligned icon header" style={{ color: "white" }}>Image Recognizer</h1>
-            <h2 className="ui center aligned icon header" style={{ color: "white" }}>Drop Your Images Here</h2>
+    <div  style={{background: "#003333",width: '100%',height: '100%' }}>
+        <form >
+            <h1 className="ui center aligned icon header" style={{ color: "white",marginTop: "12%" }}>Recognize anything, from anywhere.</h1>
+            <h4 className="ui center aligned icon header" style={{ color: "white" }}>Upload your images here to get the image recognized.</h4>
             <div className="ui center aligned basic segment">
                 <div className="ui big icon input" style={{ padding: "10px", border: "3px solid white" }}>
                     <input type="file" />
