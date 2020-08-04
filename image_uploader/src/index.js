@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Image_component from './components/Image_component';
+import Image_get from './components/Image_get'
 
 const App = ()=>{
 
-  return(<div className = "ui container"> <Image_component></Image_component></div>);
+  return(<div className = "ui container"><br></br><br></br> <Image_component></Image_component><Image_get></Image_get></div>);
 };
 ReactDOM.render(
   <App />,
