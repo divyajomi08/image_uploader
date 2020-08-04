@@ -10,8 +10,8 @@ const Image_get = () => {
                             <i class="eye icon"></i>Preview
   
                         </button>
-                        <button class="positive ui button">
-                            <i class="right arrow icon"></i>
+                        <button class="positive ui button" >
+                            
                             Next
                         </button>
                     </div>
