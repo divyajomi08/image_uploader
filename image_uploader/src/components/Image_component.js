@@ -3,18 +3,21 @@ import React from "react";
 const Image_component = () => {
 
     return(
-    <div >
-        <form >
-            <h1 className="ui center aligned icon header" style={{ color: "white",marginTop: "12%" }}>Recognize anything, from anywhere.</h1>
-            <h4 className="ui center aligned icon header" style={{ color: "white" }}>Upload your images here to get the image recognized.</h4>
-            <div className="ui center aligned basic segment">
-                <div className="ui big icon input" style={{ padding: "10px", border: "3px solid white" }}>
-                    <input type="file" />
-                    <button className="ui button">Upload</button>
+        <div>
+          <form className="ui form">
+            <h1 className="ui dividing header">Image Recognizer</h1>
+            <div className="field">
+              <div class="ui raised segment">
+                <a class="ui teal ribbon label">Drop Your Images Here</a>
+                <div className="ui action input">
+                  <br></br>
+                  <input type="file" />
+                  <button className="ui green button">Upload</button>
                 </div>
-            </div>   
-        </form>
-    </div>
-    );
-};
+              </div>
+            </div>
+          </form>
+        </div>
+      );
+    };
 export default Image_component;
