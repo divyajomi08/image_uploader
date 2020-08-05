@@ -2,35 +2,37 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Image_component = () => {
-  const [selectedfile,setfile]=useState(null);
-  const [identifier,setid]=useState(null);
-  const onFileChange = (event) => {     
-    // Update the state 
-    setfile(event.target.value);   
-  }; 
-  const onTextChange = (event)=>{
-    setid(event.target.value);
-    console.log("success");
+  const [selectedFile, setFile] = useState(null);
+  const [identifier, setId] = useState(null);
+  const [uploaded, setUpload] = useState(null);
+
+  const onFileChange = (event) => {
+    console.log(event.target.files[0]);
+    setFile(event.target.files[0]);
   };
-  const onFileUpload = () => {      
-    // Create an object of formData 
-    const formData = new FormData(); 
-   
-    // Update the formData object 
-    formData.append("image",      
-      selectedfile, 
-      identifier 
-    ); 
-    // const formData = {image : selectedfile,identifier : identifier }; 
-    // Details of the uploaded file 
-    console.log(selectedfile); 
-   
-    // Request made to the backend api 
-    // Send formData object 
-    axios.post("https://stormy-dawn-26142.herokuapp.com/images", formData).then((res)=>{console.log(res)}).catch((error)=>console.log(error)); 
-  }; 
-  
-  
+
+  const onTextChange = (event) => {
+    setId(event.target.value);
+  };
+
+  const onFileUpload = (event) => {
+    console.log(selectedFile);
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("image", selectedFile);
+    formData.append("identifier", identifier);
+    axios
+      .post(" https://stormy-dawn-26142.herokuapp.com/images", formData, {
+        headers: {
+          "Content-Type": "multipart/formdata",
+        },
+      })
+      .then((res) => setUpload(true))
+      .catch((err) => {
+        console.log(err.response);
+        setUpload(null);
+      });
+  };
   return (
     <div>
       <form className="ui form">
