@@ -4,29 +4,29 @@ import axios from "axios";
 const Image_component = () => {
   const [selectedfile,setfile]=useState(null);
   const [identifier,setid]=useState(null);
-  const onFileChange = event => {     
+  const onFileChange = (event) => {     
     // Update the state 
-    setfile({ selectedfile: event.target.files[0] });   
+    setfile(event.target.value);   
   }; 
   const onTextChange = (event)=>{
     setid(event.target.value);
   };
   const onFileUpload = () => {      
     // Create an object of formData 
-    // const formData = new FormData(); 
+    const formData = new FormData(); 
    
     // Update the formData object 
-    // formData.append(      
-    //   selectedfile, 
-    //   selectedfile.name 
-    // ); 
-    const formData = {image : selectedfile,identifier : identifier }; 
+    formData.append("image",      
+      selectedfile, 
+      identifier 
+    ); 
+    // const formData = {image : selectedfile,identifier : identifier }; 
     // Details of the uploaded file 
     console.log(selectedfile); 
    
     // Request made to the backend api 
     // Send formData object 
-    axios.post("https://stormy-dawn-26142.herokuapp.com/images", formData); 
+    axios.post("https://stormy-dawn-26142.herokuapp.com/images", formData).then((res)=>{console.log(res)}).catch((error)=>console.log(error)); 
   }; 
   
   
