@@ -5,12 +5,12 @@ const Image_get = () => {
         <div>
             <form className="ui form">
                 <div className="field">
-                    <div class="ui raised segment">
-                        <button class="ui labeled icon button">
-                            <i class="eye icon"></i>Preview
+                    <div className="ui raised segment">
+                        <button className="ui labeled icon button">
+                            <i className="eye icon"></i>Preview
   
                         </button>
-                        <button class="positive ui button" >
+                        <button className="positive ui button" >
                             
                             Next
                         </button>
