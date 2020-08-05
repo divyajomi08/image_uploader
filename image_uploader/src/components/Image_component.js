@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const Image_component = () => {
@@ -10,6 +10,7 @@ const Image_component = () => {
   }; 
   const onTextChange = (event)=>{
     setid(event.target.value);
+    console.log("success");
   };
   const onFileUpload = () => {      
     // Create an object of formData 
@@ -32,7 +33,7 @@ const Image_component = () => {
   
   return (
     <div>
-      <form className="ui form" >
+      <form className="ui form">
         <h1 className="ui dividing header">Image Recognizer</h1>
         <div className="field">
           <div className="ui raised segment">
@@ -43,9 +44,22 @@ const Image_component = () => {
             </div>
             <div className="field">
               <label>Name</label>
-              <input name="identifier" onChange={onTextChange} type="text" placeholder="name" />
+              <input
+                name="identifier"
+                onChange={onTextChange}
+                type="text"
+                placeholder="name"
+              />
             </div>
-            <button className="ui green button" onClick={()=>{onFileUpload()}} >Upload</button>
+            <button className="ui green button" onClick={onFileUpload}>
+              Upload
+            </button>
+            <div>
+              <br></br>
+              {uploaded ? 
+                 <h4 class="ui dividing header">Uploaded</h4>
+               : null}
+            </div>
           </div>
         </div>
       </form>
