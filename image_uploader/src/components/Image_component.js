@@ -16,7 +16,6 @@ const Image_component = () => {
   };
 
   const onFileUpload = (event) => {
-    console.log(selectedFile);
     event.preventDefault();
     const formData = new FormData();
     formData.append("image", selectedFile);
@@ -56,10 +55,13 @@ const Image_component = () => {
             <button className="ui green button" onClick={onFileUpload}>
               Upload
             </button>
+            <button className="ui green button" type="submit">
+              Refresh
+            </button>
             <div>
               <br></br>
               {uploaded ? 
-                 <h4 class="ui dividing header">Uploaded</h4>
+                 <h4 className="ui dividing header">Uploaded</h4>
                : null}
             </div>
           </div>
