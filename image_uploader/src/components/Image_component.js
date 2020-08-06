@@ -9,10 +9,12 @@ const Image_component = () => {
   const onFileChange = (event) => {
     console.log(event.target.files[0]);
     setFile(event.target.files[0]);
+    setUpload(null);
   };
 
   const onTextChange = (event) => {
     setId(event.target.value);
+    setUpload(null);
   };
 
   const onFileUpload = (event) => {
