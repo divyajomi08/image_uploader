@@ -13,7 +13,7 @@ const Image_get = () => {
     const onButtonClick = (event) => {
         event.preventDefault();
         setPathObj(path.filter((element) => {return element.identifier === identifier; }));
-        getPath();
+        
 
     };
     const onTextChange = (event) => {
@@ -21,7 +21,7 @@ const Image_get = () => {
         
     };
 
-    useEffect(() => { getPath() }, []);    
+    useEffect(() => { getPath()}, [identifier]);    
     return (
         <div>
             <form className="ui form">
