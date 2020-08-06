@@ -10,10 +10,9 @@ const Image_get = () => {
         setPath(result.data);
         
     };
-    const onButtonClick = (event) => {
+    const onButtonClick = async(event) => {
         event.preventDefault();
         setPathObj(path.filter((element) => {return element.identifier === identifier; }));
-        getPath();
 
     };
     const onTextChange = (event) => {
@@ -21,7 +20,7 @@ const Image_get = () => {
         
     };
 
-    useEffect(() => { getPath() }, []);    
+    useEffect(() => { getPath() }, [identifier]);    
     return (
         <div>
             <form className="ui form">
@@ -42,8 +41,6 @@ const Image_get = () => {
                         {path_object ? <div className="ui card">
                             <div className="image">
                                 {path_object[0] ? <img src={"https://stormy-dawn-26142.herokuapp.com/"+path_object[0].pathName} /> : null}
-                                
-                                
                             </div>
                         </div> : null}
                         <button className="positive ui button" >
