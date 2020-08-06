@@ -5,6 +5,7 @@ const Image_component = () => {
   const [selectedFile, setFile] = useState(null);
   const [identifier, setId] = useState(null);
   const [uploaded, setUpload] = useState(null);
+  const [buttonStyle,setStyle] = useState("ui green button");
 
   const onFileChange = (event) => {
     console.log(event.target.files[0]);
@@ -22,15 +23,17 @@ const Image_component = () => {
     const formData = new FormData();
     formData.append("image", selectedFile);
     formData.append("identifier", identifier);
+    setStyle("ui primary loading button");
     axios
       .post(" https://stormy-dawn-26142.herokuapp.com/images", formData, {
         headers: {
           "Content-Type": "multipart/formdata",
         },
       })
-      .then((res) => setUpload(true))
+      .then((res) => {setUpload(true);setStyle("ui green button")})
       .catch((err) => {
         console.log(err.response);
+        setStyle("ui green button");
         setUpload(null);
       });
   };
@@ -54,7 +57,7 @@ const Image_component = () => {
                 placeholder="name"
               />
             </div>
-            <button className="ui green button" onClick={onFileUpload}>
+            <button className={buttonStyle} onClick={onFileUpload}>
               Upload
             </button>
             <button className="ui green button" type="submit">
